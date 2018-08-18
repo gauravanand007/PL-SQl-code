@@ -1,0 +1,9 @@
+create table department
+(dept_ID NUMBER NOT NULL PRIMARY KEY,DEPT_NAME varchar2(20));
+create table emp_info
+(dept_ID NUMBER NOT NULL,emp_Name varchar(10));
+Insert INto Department (dept_id,dept_Name) Values (1,'IT');
+Insert INto Department (dept_id,dept_Name) Values (2,'A/C');
+Insert INto Department (dept_id,dept_Name) Values (3,'food');
+Insert INto Department (dept_id,dept_Name) Values (4,'nss');
+Insert INto Department (dept_id,dept_Name) Values (5,'security');
