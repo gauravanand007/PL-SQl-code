@@ -7,3 +7,9 @@ Insert INto Department (dept_id,dept_Name) Values (2,'A/C');
 Insert INto Department (dept_id,dept_Name) Values (3,'food');
 Insert INto Department (dept_id,dept_Name) Values (4,'nss');
 Insert INto Department (dept_id,dept_Name) Values (5,'security');
+emp_info table
+Insert INto emp_info (dept_id,emp_Name) Values (1,'gautam');
+Insert INto emp_info (dept_id,emp_Name) Values (1,'gaurav');
+Insert INto emp_info (dept_id,emp_Name) Values (5,'lalan');
+Insert INto emp_info (dept_id,emp_Name) Values (4,'pandu');
+Insert INto emp_info (dept_id,emp_Name) Values (5,'baban');
