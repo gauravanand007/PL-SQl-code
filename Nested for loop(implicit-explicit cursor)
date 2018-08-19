@@ -1,0 +1,20 @@
+Declare
+
+cursor Cur_emp_info(var_id department.dept_id%type default 3) IS 
+select emp_name,dept_id from emp_info
+where dept_id=var_id;
+
+Begin
+
+<<dept_loop>> 
+for Cur_dept IN (select dept_id from department) 
+Loop
+DBMS_OUTPUT.PUT_LINE ('DEPT_ID:' || Cur_dept.dept_id);
+<<emp_loop>>
+for Cur_emp IN Cur_emp_info(Cur_dept.dept_id)
+Loop
+DBMS_OUTPUT.PUT_LINE ('Emp_name-----Dept_id:' || Cur_emp.dept_id ||'---'|| Cur_emp.emp_name );
+
+End Loop emp_loop;
+End Loop dept_loop;
+END;
