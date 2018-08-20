@@ -1,0 +1,28 @@
+Declare
+
+Type cur_ref_emp_info IS REF CURSOR RETURN emp_info%ROWTYPE;
+cur_var_emp cur_ref_emp_info;
+var_emp_info emp_info%ROWTYPE;
+var_dept_info department%rowtype;
+
+Begin
+
+open cur_var_emp for 
+select dept_id,emp_name from emp_info 
+where dept_id in ('1','5');
+LOOP
+fetch cur_var_emp INto var_emp_info;
+EXIT when cur_var_emp%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE ('EMP NAME: ' || var_emp_info.emp_name);
+end LOOP;
+
+open cur_var_emp for
+select dept_id,dept_name from department 
+where dept_ID in (1,2,3);
+Loop
+fetch cur_var_emp INTO var_dept_info;
+EXIT when cur_var_emp%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE ('DEPT NAME: ' || var_dept_info.dept_name);
+END loop;
+close cur_var_emp;
+END;
