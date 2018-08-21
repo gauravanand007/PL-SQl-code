@@ -1,0 +1,25 @@
+--select * from emp_info;
+--Select * from department;
+
+Create or Replace Function func_get_emp_no Return Number IS
+
+Cursor Cur_get_dept_id(d_name varchar2 DEFAULT 'security') IS 
+Select dept_id from department 
+where dept_name=d_name;
+Cur_var_dep_id department.dept_id%TYPE;
+Emp_Count NUMBER;
+Begin
+
+open Cur_get_dept_id('IT') ;
+Fetch Cur_get_dept_id INTO Cur_var_dep_id;
+close Cur_get_dept_id;
+select count(*) INTO Emp_Count from emp_info
+where dept_id=Cur_var_dep_id;
+
+Return Emp_Count;
+
+EXCEPTION
+when others then
+DBMS_OUTPUT.PUT_LINE(SQLERRM);
+RAISE;
+END func_get_emp_no;
